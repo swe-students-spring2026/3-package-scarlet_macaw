@@ -6,8 +6,45 @@ def debug_encouragement(error_type: str) -> str:
 
 
 def celebrate_small_win(task: str) -> str:
-    raise NotImplementedError
+    """Return an enthusiastic celebration message for a completed coding task.
+    Args:
+        task: A short description of the task that was completed.
+    Returns:
+        A celebratory string that includes the task name.
+    Raises:
+        TypeError: If task is not a string.
+        ValueError: If task is empty or whitespace only.
+    """
+    if not isinstance(task, str):
+        raise TypeError("task must be a string")
 
+    cleaned_task = task.strip()
+    if not cleaned_task:
+        raise ValueError("task cannot be empty")
+    openers = [
+        "Nailed it!",
+        "Victory!",
+        "Shipped!",
+        "Done and done!",
+        "Champion move!",
+    ]
+    middles = [
+        f"You just '{cleaned_task}' like a pro.",
+        f"'{cleaned_task}' is officially off the list.",
+        f"Turns out '{cleaned_task}' was totally within your power.",
+        f"The world now has one more developer who can '{cleaned_task}'.",
+        f"'{cleaned_task}' has been conquered. Bow down.",
+    ]
+
+    closers = [
+        "Keep the momentum going!",
+        "One small step for you, one giant leap for your codebase.",
+        "Stack those wins.",
+        "Future you will be grateful.",
+        "Now go grab a coffee — you earned it.",
+    ]
+
+    return f"{random.choice(openers)} {random.choice(middles)} {random.choice(closers)}"
 
 def passive_aggressive_advice(topic: str) -> str:
     if not isinstance(topic, str):
