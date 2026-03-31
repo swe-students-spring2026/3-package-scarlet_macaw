@@ -7,20 +7,27 @@ def debug_encouragement(error_type: str) -> str:
 
 def celebrate_small_win(task: str) -> str:
     """Return an enthusiastic celebration message for a completed coding task.
+
     Args:
         task: A short description of the task that was completed.
+
     Returns:
         A celebratory string that includes the task name.
+
     Raises:
         TypeError: If task is not a string.
         ValueError: If task is empty or whitespace only.
     """
+    # Ensure the caller passed a string, not an int or None
     if not isinstance(task, str):
         raise TypeError("task must be a string")
 
+    # Strip leading/trailing whitespace so blank-padded strings are rejected
     cleaned_task = task.strip()
     if not cleaned_task:
         raise ValueError("task cannot be empty")
+
+    # Short punchy openers to kick off the celebration
     openers = [
         "Nailed it!",
         "Victory!",
@@ -28,6 +35,8 @@ def celebrate_small_win(task: str) -> str:
         "Done and done!",
         "Champion move!",
     ]
+
+    # Middle section that calls out the specific task by name
     middles = [
         f"You just '{cleaned_task}' like a pro.",
         f"'{cleaned_task}' is officially off the list.",
@@ -36,6 +45,7 @@ def celebrate_small_win(task: str) -> str:
         f"'{cleaned_task}' has been conquered. Bow down.",
     ]
 
+    # Motivational closers to keep the momentum going
     closers = [
         "Keep the momentum going!",
         "One small step for you, one giant leap for your codebase.",
@@ -44,6 +54,7 @@ def celebrate_small_win(task: str) -> str:
         "Now go grab a coffee — you earned it.",
     ]
 
+    # Randomly combine one opener, middle, and closer for variety
     return f"{random.choice(openers)} {random.choice(middles)} {random.choice(closers)}"
 
 def passive_aggressive_advice(topic: str) -> str:
