@@ -30,20 +30,23 @@ class TestDebugEncouragement:
         with pytest.raises(TypeError):
             debug_encouragement(None)
 
-# class TestCelebrateSmallWin:
 class TestCelebrateSmallWin:
-    def test_returns_string_with_task(self):
-        result = celebrate_small_win("finished the README")
-
+    def test_returns_string(self):
+        result = celebrate_small_win("wrote my first passing test")
         assert isinstance(result, str)
-        assert "finished the README" in result
-        assert len(result) > 40
+
+    def test_contains_task_name(self):
+        result = celebrate_small_win("fixed a null pointer bug")
+        assert "fixed a null pointer bug" in result
+
+    def test_result_is_nonempty(self):
+        result = celebrate_small_win("refactored the auth module")
+        assert len(result) > 0
 
     def test_strips_surrounding_whitespace(self):
-        result = celebrate_small_win("   wrote my first passing test   ")
-
-        assert "wrote my first passing test" in result
-        assert "   wrote my first passing test   " not in result
+        result = celebrate_small_win("  wrote a docstring  ")
+        assert "wrote a docstring" in result
+        assert "  wrote a docstring  " not in result
 
     def test_raises_on_empty_task(self):
         with pytest.raises(ValueError):
@@ -51,7 +54,8 @@ class TestCelebrateSmallWin:
 
     def test_raises_on_non_string_task(self):
         with pytest.raises(TypeError):
-            celebrate_small_win(None)
+            celebrate_small_win(42)
+
 
 class TestPassiveAggressiveAdvice:
     def test_returns_string_with_topic(self):

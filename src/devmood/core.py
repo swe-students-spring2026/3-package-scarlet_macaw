@@ -49,51 +49,45 @@ def debug_encouragement(error_type: str) -> str:
 
 
 def celebrate_small_win(task: str) -> str:
+    """Return an enthusiastic celebration message for a completed coding task.
+    Args:
+        task: A short description of the task that was completed.
+    Returns:
+        A celebratory string that includes the task name.
+    Raises:
+        TypeError: If task is not a string.
+        ValueError: If task is empty or whitespace only.
+    """
     if not isinstance(task, str):
         raise TypeError("task must be a string")
 
     cleaned_task = task.strip()
     if not cleaned_task:
         raise ValueError("task cannot be empty")
+    openers = [
+        "Nailed it!",
+        "Victory!",
+        "Shipped!",
+        "Done and done!",
+        "Champion move!",
+    ]
+    middles = [
+        f"You just '{cleaned_task}' like a pro.",
+        f"'{cleaned_task}' is officially off the list.",
+        f"Turns out '{cleaned_task}' was totally within your power.",
+        f"The world now has one more developer who can '{cleaned_task}'.",
+        f"'{cleaned_task}' has been conquered. Bow down.",
+    ]
 
-    openings = [
-        "Nice work",
-        "That counts",
-        "Momentum spotted",
-        "Quietly iconic",
-        "Excellent progress",
-    ]
-    celebrations = [
-        f"you just {cleaned_task}",
-        f"getting '{cleaned_task}' done absolutely matters",
-        f"'{cleaned_task}' is a real win, not a fake productivity side quest",
-        f"'{cleaned_task}' moved the project forward",
-        f"'{cleaned_task}' deserves more credit than your inner critic is giving it",
-    ]
-    reflections = [
-        "Small wins are how big projects stop feeling impossible.",
-        "Progress is still progress even when it looks unglamorous.",
-        "A bunch of tiny victories is what shipping usually looks like.",
-        "This is the kind of step that makes the next one easier.",
-        "You are building proof, not just crossing off tasks.",
-    ]
     closers = [
-        "Take the win and keep rolling.",
-        "Future-you is already benefiting from this.",
-        "That green checkmark energy is real.",
-        "Keep stacking these and the hard part gets lighter.",
-        "You earned at least one deeply satisfied nod.",
+        "Keep the momentum going!",
+        "One small step for you, one giant leap for your codebase.",
+        "Stack those wins.",
+        "Future you will be grateful.",
+        "Now go grab a coffee — you earned it.",
     ]
 
-    message = (
-        f"{random.choice(openings)}: {random.choice(celebrations)}. "
-        f"{random.choice(reflections)} {random.choice(closers)}"
-    )
-    if random.random() < 0.4:
-        message += " Optional victory lap: document it before your brain moves on."
-
-    return message
-
+    return f"{random.choice(openers)} {random.choice(middles)} {random.choice(closers)}"
 
 def passive_aggressive_advice(topic: str) -> str:
     if not isinstance(topic, str):
