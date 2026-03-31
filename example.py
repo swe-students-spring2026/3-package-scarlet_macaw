@@ -19,8 +19,8 @@ print()
 
 # --- passive_aggressive_advice ---
 print("=== passive_aggressive_advice ===")
-print(passive_aggressive_advice())
-print(passive_aggressive_advice())
+print(passive_aggressive_advice("variable naming"))
+print(passive_aggressive_advice("refactoring"))
 print()
 
 # --- ascii_hug ---
