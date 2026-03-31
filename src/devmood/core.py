@@ -11,7 +11,7 @@ def debug_encouragement(error_type: str) -> str:
     if not cleaned_error_type:
         raise ValueError("error_type cannot be empty")
 
-    # Calm openers to set a steady tone
+    # Calm opener
     openings = [
         "Deep breath",
         "You've got this",
