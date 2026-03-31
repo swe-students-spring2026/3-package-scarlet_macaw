@@ -1,6 +1,5 @@
 # devmood - Emotional Support for Developers
-
-![GitHub Actions](https://github.com/swe-students-spring2026/3-package-scarlet_macaw/actions/workflows/event-logger.yml/badge.svg)
+[![Unit Tests](https://github.com/swe-students-spring2026/3-package-scarlet_macaw/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/swe-students-spring2026/3-package-scarlet_macaw/actions/workflows/unit-tests.yml)
 
 `devmood` is a playful Python package that gives developers quick emotional support during coding sessions.  
 It helps turn debugging stress into momentum with encouragement, small-win celebrations, sarcastic advice, and ASCII hugs.
