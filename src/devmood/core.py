@@ -2,13 +2,16 @@ import random
 
 
 def debug_encouragement(error_type: str) -> str:
+    # Ensure the caller passed a string, not an int or None
     if not isinstance(error_type, str):
         raise TypeError("error_type must be a string")
 
+    # Strip whitespace so blank-padded strings are rejected
     cleaned_error_type = error_type.strip()
     if not cleaned_error_type:
         raise ValueError("error_type cannot be empty")
 
+    # Calm opener
     openings = [
         "Deep breath",
         "You've got this",
@@ -16,6 +19,8 @@ def debug_encouragement(error_type: str) -> str:
         "One bug at a time",
         "This is still progress",
     ]
+
+    # Middle phrases that name the specific error type
     validations = [
         f"{cleaned_error_type} is annoying, not unbeatable",
         f"even a stubborn {cleaned_error_type} can be cornered",
@@ -23,6 +28,8 @@ def debug_encouragement(error_type: str) -> str:
         f"you are allowed to outlast this {cleaned_error_type}",
         f"this {cleaned_error_type} is just today's puzzle piece",
     ]
+
+    # Debugging tips for the developer
     next_steps = [
         "Start with the smallest reproducible case.",
         "Check the last thing that changed and test one assumption.",
@@ -30,6 +37,8 @@ def debug_encouragement(error_type: str) -> str:
         "Reduce the scope until the bug has nowhere left to hide.",
         "Turn one mystery into one concrete observation.",
     ]
+
+    # Encouraging sign-offs
     closers = [
         "You do not need magic, just the next clue.",
         "Momentum comes back fast once the first clue lands.",
@@ -38,10 +47,13 @@ def debug_encouragement(error_type: str) -> str:
         "You are closer than this error wants you to believe.",
     ]
 
+    # Randomly combine one phrase from each list for variety
     message = (
         f"{random.choice(openings)}: {random.choice(validations)}. "
         f"{random.choice(next_steps)} {random.choice(closers)}"
     )
+
+    # 40% chance to append a self-care nudge
     if random.random() < 0.4:
         message += " Hydrate, rerun, and collect one more clue."
 
