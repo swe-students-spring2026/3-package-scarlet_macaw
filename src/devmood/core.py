@@ -49,7 +49,50 @@ def debug_encouragement(error_type: str) -> str:
 
 
 def celebrate_small_win(task: str) -> str:
-    raise NotImplementedError
+    if not isinstance(task, str):
+        raise TypeError("task must be a string")
+
+    cleaned_task = task.strip()
+    if not cleaned_task:
+        raise ValueError("task cannot be empty")
+
+    openings = [
+        "Nice work",
+        "That counts",
+        "Momentum spotted",
+        "Quietly iconic",
+        "Excellent progress",
+    ]
+    celebrations = [
+        f"you just {cleaned_task}",
+        f"getting '{cleaned_task}' done absolutely matters",
+        f"'{cleaned_task}' is a real win, not a fake productivity side quest",
+        f"'{cleaned_task}' moved the project forward",
+        f"'{cleaned_task}' deserves more credit than your inner critic is giving it",
+    ]
+    reflections = [
+        "Small wins are how big projects stop feeling impossible.",
+        "Progress is still progress even when it looks unglamorous.",
+        "A bunch of tiny victories is what shipping usually looks like.",
+        "This is the kind of step that makes the next one easier.",
+        "You are building proof, not just crossing off tasks.",
+    ]
+    closers = [
+        "Take the win and keep rolling.",
+        "Future-you is already benefiting from this.",
+        "That green checkmark energy is real.",
+        "Keep stacking these and the hard part gets lighter.",
+        "You earned at least one deeply satisfied nod.",
+    ]
+
+    message = (
+        f"{random.choice(openings)}: {random.choice(celebrations)}. "
+        f"{random.choice(reflections)} {random.choice(closers)}"
+    )
+    if random.random() < 0.4:
+        message += " Optional victory lap: document it before your brain moves on."
+
+    return message
 
 
 def passive_aggressive_advice(topic: str) -> str:
