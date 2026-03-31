@@ -20,7 +20,7 @@ It helps turn debugging stress into momentum with encouragement, small-win celeb
 
 ## PyPI
 
-
+Package page: [https://pypi.org/project/devmood/0.1.0/](https://pypi.org/project/devmood/0.1.0/)
 
 ## Install and Import
 
@@ -142,11 +142,22 @@ These commands work on macOS, Linux, and Windows (PowerShell), as long as Python
 
 ## Environment Variables and Starter Data
 
+`devmood` does not require any environment variables, databases, or starter data.
 
+To run the package locally:
+
+```bash
+pip install pipenv
+pipenv install --dev
+pipenv run pytest
+pipenv run python example.py
+```
 
 ## Secret Configuration Files
 
+This project does not require a `.env` file or any other secret configuration file for normal development, testing, packaging, or running the example program.
 
+No additional secret files are needed to use `devmood`.
 
 ## Teammates
 
@@ -154,4 +165,4 @@ These commands work on macOS, Linux, and Windows (PowerShell), as long as Python
 - [Yutong Liu](https://github.com/Abbyyyt)
 - [Bryce Lin](https://github.com/blin03)
 - [Yuliang Liu](https://github.com/yl11529)
-- [Teammate Five](https://github.com/username5)
+- [Andy Liu](https://github.com/andy8259)
