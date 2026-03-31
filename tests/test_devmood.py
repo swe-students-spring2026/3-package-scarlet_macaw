@@ -8,6 +8,27 @@ from devmood import (
 )
 
 # class TestDebugEncouragement:
+class TestDebugEncouragement:
+    def test_returns_string_with_error_type(self):
+        result = debug_encouragement("TypeError")
+
+        assert isinstance(result, str)
+        assert "TypeError" in result
+        assert len(result) > 40
+
+    def test_strips_surrounding_whitespace(self):
+        result = debug_encouragement("   KeyError   ")
+
+        assert "KeyError" in result
+        assert "   KeyError   " not in result
+
+    def test_raises_on_empty_error_type(self):
+        with pytest.raises(ValueError):
+            debug_encouragement("   ")
+
+    def test_raises_on_non_string_error_type(self):
+        with pytest.raises(TypeError):
+            debug_encouragement(None)
 
 class TestCelebrateSmallWin:
     def test_returns_string(self):

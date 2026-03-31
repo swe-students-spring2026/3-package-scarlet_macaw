@@ -151,7 +151,7 @@ These commands work on macOS, Linux, and Windows (PowerShell), as long as Python
 ## Teammates
 
 - [Laura Liu](https://github.com/lauraliu518)
-- [Teammate Two](https://github.com/username2)
-- [Teammate Three](https://github.com/username3)
-- [Teammate Four](https://github.com/username4)
+- [Yutong Liu](https://github.com/Abbyyyt)
+- [Bryce Lin](https://github.com/blin03)
+- [Yuliang Liu](https://github.com/yl11529)
 - [Teammate Five](https://github.com/username5)

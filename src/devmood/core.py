@@ -2,7 +2,50 @@ import random
 
 
 def debug_encouragement(error_type: str) -> str:
-    raise NotImplementedError
+    if not isinstance(error_type, str):
+        raise TypeError("error_type must be a string")
+
+    cleaned_error_type = error_type.strip()
+    if not cleaned_error_type:
+        raise ValueError("error_type cannot be empty")
+
+    openings = [
+        "Deep breath",
+        "You've got this",
+        "Debugger mode activated",
+        "One bug at a time",
+        "This is still progress",
+    ]
+    validations = [
+        f"{cleaned_error_type} is annoying, not unbeatable",
+        f"even a stubborn {cleaned_error_type} can be cornered",
+        f"{cleaned_error_type} does not get the final word here",
+        f"you are allowed to outlast this {cleaned_error_type}",
+        f"this {cleaned_error_type} is just today's puzzle piece",
+    ]
+    next_steps = [
+        "Start with the smallest reproducible case.",
+        "Check the last thing that changed and test one assumption.",
+        "Print the value you trust least and follow the trail.",
+        "Reduce the scope until the bug has nowhere left to hide.",
+        "Turn one mystery into one concrete observation.",
+    ]
+    closers = [
+        "You do not need magic, just the next clue.",
+        "Momentum comes back fast once the first clue lands.",
+        "Tiny, boring debugging steps win these battles.",
+        "A fix is usually hiding behind one verified fact.",
+        "You are closer than this error wants you to believe.",
+    ]
+
+    message = (
+        f"{random.choice(openings)}: {random.choice(validations)}. "
+        f"{random.choice(next_steps)} {random.choice(closers)}"
+    )
+    if random.random() < 0.4:
+        message += " Hydrate, rerun, and collect one more clue."
+
+    return message
 
 
 def celebrate_small_win(task: str) -> str:
