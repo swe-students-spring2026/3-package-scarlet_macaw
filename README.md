@@ -144,7 +144,7 @@ These commands work on macOS, Linux, and Windows (PowerShell), as long as Python
 
 
 
-## Secret Configuration File
+## Secret Configuration Files
 
 
 
